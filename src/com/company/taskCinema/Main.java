@@ -15,24 +15,9 @@ public class Main {
         Session.Film film2 = new Session.Film("ЛюдиХ");
         Session.Film film3 = new Session.Film("Незваные");
         Session.Film film4 = new Session.Film("Лунтик");
-//        List<Session.Film> filmsSov = new ArrayList<>() {
-//            {
-//                add(film1);
-//                add(film2);
-//
-//            }
-//        };
-        List<String> date1 = new ArrayList<>() {
-            {
-                add("1 Ноября");
-                add("2 Ноября");
-                add("3 Ноября");
-            }
-        };
+
         String time1 = "13:50";
         String time2 = "17:50";
-
-
         String time3 = "11:50";
         String time4 = "19:50";
 
@@ -45,7 +30,6 @@ public class Main {
                 add(session1SovL);
                 add(session2SovL);
                 add(session3SovL);
-
             }
         };
         CinemaHall cinemaHallSovL = new CinemaHall("Малый зал", sessionsSovL);
@@ -66,16 +50,7 @@ public class Main {
         cinemaHalls.add(cinemaHallSovL);
         cinemaHalls.add(cinemaHallSovB);
 
-
         Cinema cinemaSov = new Cinema("\"им. Калинина\"", Cinema.Address.SOVETSKAYA, cinemaHalls);
-
-
-//        List<Session.Film> filmsBel = new ArrayList<>() {
-//            {
-//                add(film1);
-//                add(film3);
-//            }
-//        };
 
         Session session1BelL = new Session("1 Ноября", time1, film1);
         Session session2BelL = new Session("2 Ноября", time1, film3);
@@ -83,13 +58,13 @@ public class Main {
 
         List<Session> sessionsBelL = new ArrayList<>() {
             {
-                add(session1SovL);
-                add(session2SovL);
-                add(session3SovL);
+                add(session1BelL);
+                add(session2BelL);
+                add(session3BelL);
 
             }
         };
-        CinemaHall cinemaHallBelL = new CinemaHall("Малый зал", sessionsSovL);
+        CinemaHall cinemaHallBelL = new CinemaHall("Малый зал", sessionsBelL);
         List<CinemaHall> cinemaHallsBel = new ArrayList<>();
         cinemaHallsBel.add(cinemaHallBelL);
 
@@ -106,5 +81,21 @@ public class Main {
         Poster poster = new Poster(cinemas);
         System.out.println(poster);
 
+        System.out.println("Фильмы в к-ре Калинина");
+        System.out.println(StringUtils.convertToString(cinemaSov.getMovies()));
+
+        System.out.println("Фильмы в к-ре Мир");
+        System.out.println(StringUtils.convertToString(cinemaBelitsa.getMovies()));
+        System.out.println();
+
+        String date = "1 Ноября";
+        System.out.println("Фильмы " + date);
+        System.out.println(StringUtils.convertToString(cinemaSov.getMovies(date)));
+        System.out.println();
+
+        System.out.println("Сеансы " + date + " в " + cinemaSov.getName());
+        for (Session s : cinemaSov.getSessions(date)){
+            System.out.print(StringUtils.convertToString(s));
+        }
     }
 }

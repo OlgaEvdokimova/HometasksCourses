@@ -5,7 +5,6 @@ import java.util.List;
 
 public class Poster {
     private List<Cinema> cinemas;
-    private List<Session.Film> films;
 
     public Poster(List<Cinema> cinemas) {
         this.cinemas = cinemas;
@@ -18,7 +17,6 @@ public class Poster {
     public void setCinemas(List<Cinema> cinemas) {
         this.cinemas = cinemas;
     }
-
 
 
 
