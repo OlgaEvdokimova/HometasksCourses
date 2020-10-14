@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Poster {
     private List<Cinema> cinemas;
+    private List<Session.Film> films;
 
     public Poster(List<Cinema> cinemas) {
         this.cinemas = cinemas;
@@ -18,31 +19,7 @@ public class Poster {
         this.cinemas = cinemas;
     }
 
-    public String getFilmByName(String name) {
-        List<Cinema.Film> filmList = new ArrayList<>();
-        for (Cinema c : cinemas){
-            if (c.getName().equals(name)){
-                filmList =  c.getFilms();
-            }
-        }
-        StringBuilder sb = new StringBuilder();
-        for (Cinema.Film f : filmList){
-            sb.append(f);
-        }
-        return sb.toString();
-    }
 
-    public String getCinemaByFilm(String nameOfFilm) {
-        StringBuilder sb = new StringBuilder();
-        for (Cinema c : cinemas){
-            for (Cinema.Film f : c.getFilms()) {
-                if (f.getName().equals(nameOfFilm)) {
-                    sb.append(c.getName()).append("\n");
-                }
-            }
-        }
-        return sb.toString();
-    }
 
 
     @Override
