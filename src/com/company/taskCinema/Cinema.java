@@ -6,7 +6,6 @@ public class Cinema {
     private String name;
     private Address address;
     private List<CinemaHall> halls;
-    private Session.Film film;
 
     public Cinema(String name, Address address, List<CinemaHall> halls) {
         this.name = name;
