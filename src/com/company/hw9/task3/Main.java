@@ -3,6 +3,7 @@ package com.company.hw9.task3;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -16,21 +17,20 @@ public class Main {
     //Перезаписываю файл, путь которого выше. Если надо вернуть код обратно, то в файле person.txt лежит код первонач.
     //все лежит в этой папке
     public static void main(String[] args) {
-        try {
-            BufferedReader bf = new BufferedReader(new FileReader(PATH));
+        try (FileReader reader = new FileReader(PATH)){
+            Scanner sc = new Scanner(reader);
             String line;
             List<String> list = new ArrayList<>();
             String lineReplaced = "";
-            while ((line = bf.readLine()) != null){
-
+            while (sc.hasNextLine()) {
+                line = sc.nextLine();
                 Pattern pattern = Pattern.compile("public");
                 Matcher matcher = pattern.matcher(line);
                 lineReplaced = matcher.replaceAll("private");
                 list.add(lineReplaced);
-
             }
             FileWriter fileWriter = new FileWriter("D:\\Java\\StudyWithValeria\\StudyStudy\\src\\com\\company\\hw9\\task3\\Person.java");
-            for (String s : list){
+            for (String s : list) {
                 fileWriter.write(s);
                 fileWriter.write("\n");
             }
