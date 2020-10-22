@@ -25,12 +25,10 @@ public class Main {
      */
 
     public static void main(String[] args) {
-        String login = "";
-        String password = "";
-        String confirmPassword = "";
+
         while (true) {
             try {
-                if (signUp(login, password, confirmPassword)) {
+                if (signUp()) {
                 break;
                 }
             } catch (WrongLoginException e) {
@@ -43,7 +41,10 @@ public class Main {
 
     }
 
-    public static boolean signUp(String login, String password, String confirmPassword) throws WrongLoginException, WrongPasswordException {
+    public static boolean signUp() throws WrongLoginException, WrongPasswordException {
+        String login ;
+        String password ;
+        String confirmPassword;
         boolean done = false;
         Scanner sc = new Scanner(System.in);
 
@@ -60,7 +61,7 @@ public class Main {
         System.out.println("confirm ur password");
         confirmPassword = sc.nextLine();
 
-        if (!(password.matches("\\w{1,14}") || !password.equals(confirmPassword))) {
+        if (!password.matches("\\w{1,14}") || !password.equals(confirmPassword)) {
             throw new WrongPasswordException("Wrong password");
         }
         done = true;
