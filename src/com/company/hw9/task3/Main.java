@@ -19,7 +19,6 @@ public class Main {
         try {
             BufferedReader bf = new BufferedReader(new FileReader(PATH));
             String line;
-
             List<String> list = new ArrayList<>();
             String lineReplaced = "";
             while ((line = bf.readLine()) != null){
