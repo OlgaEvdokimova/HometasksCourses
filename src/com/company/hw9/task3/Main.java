@@ -16,7 +16,8 @@ public class Main {
     //Перезаписываю файл, путь которого выше. Если надо вернуть код обратно, то в файле person.txt лежит код первонач.
     //все лежит в этой папке
     public static void main(String[] args) {
-        try(BufferedReader bf = new BufferedReader(new FileReader(PATH))) {
+        try {
+            BufferedReader bf = new BufferedReader(new FileReader(PATH));
             String line;
 
             List<String> list = new ArrayList<>();
