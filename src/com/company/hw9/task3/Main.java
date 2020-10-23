@@ -29,7 +29,7 @@ public class Main {
                 lineReplaced = matcher.replaceAll("private");
                 list.add(lineReplaced);
             }
-            FileWriter fileWriter = new FileWriter("D:\\Java\\StudyWithValeria\\StudyStudy\\src\\com\\company\\hw9\\task3\\Person.java");
+            FileWriter fileWriter = new FileWriter(PATH);
             for (String s : list) {
                 fileWriter.write(s);
                 fileWriter.write("\n");
