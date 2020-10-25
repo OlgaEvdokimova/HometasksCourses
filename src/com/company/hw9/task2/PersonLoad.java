@@ -22,18 +22,18 @@ public class PersonLoad {
             while ((line = fileReader.readLine()) != null) {
                 String[] splitLine = line.split("\\s+");
                 try {
-                    startWork = Integer.parseInt(splitLine[2]);
+                    startWork = Integer.parseInt(splitLine[START_WORK]);
                 } catch (NumberFormatException e) {
-                    throw new NotAgeException(splitLine[2] + " not a number");
+                    throw new NotAgeException(splitLine[START_WORK] + " not a number");
                 }
                 try {
-                    endWork = Integer.parseInt(splitLine[3]);
+                    endWork = Integer.parseInt(splitLine[END_WORK]);
                 } catch (NumberFormatException e) {
-                    throw new NotAgeException(splitLine[3] + " not a number");
+                    throw new NotAgeException(splitLine[END_WORK] + " not a number");
                 }
                 Person person = new Person();
-                person.setName(splitLine[0]);
-                person.setLastName(splitLine[1]);
+                person.setName(splitLine[FIRST_NAME]);
+                person.setLastName(splitLine[LAST_MAME]);
                 person.setStartWork(startWork);
                 person.setEndWork(endWork);
                 persons.add(person);
@@ -44,13 +44,17 @@ public class PersonLoad {
         return persons;
     }
 
-    public Person getNameTheBiggestExperience(){
+    public Person personTheBiggestExperience(){
         Person personMaxExperience = null;
 
         try {
             List<Person> persons = getPersons();
             Collections.sort(persons, new ComparatorPerson());
-            personMaxExperience = persons.get(0);
+            if (!persons.isEmpty()) {
+                personMaxExperience = persons.get(0);
+            } else {
+                System.out.println("Empty list");
+            }
         }catch (NotAgeException e){
             System.out.println(e.getMessage());
         }

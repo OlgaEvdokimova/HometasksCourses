@@ -24,10 +24,11 @@ public class Main {
             String lineReplaced = "";
             while (sc.hasNextLine()) {
                 line = sc.nextLine();
-                Pattern pattern = Pattern.compile("public");
-                Matcher matcher = pattern.matcher(line);
-                lineReplaced = matcher.replaceAll("private");
-                list.add(lineReplaced);
+//                Pattern pattern = Pattern.compile("public");
+//                Matcher matcher = pattern.matcher(line);
+//                lineReplaced = matcher.replaceAll("private");
+
+                list.add(line.replaceAll("public", "private"));
             }
             FileWriter fileWriter = new FileWriter(PATH);
             for (String s : list) {

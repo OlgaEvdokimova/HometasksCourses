@@ -18,7 +18,7 @@ public class Main {
 
         String text = Reader.getInfo(PATH);
 //могу вывести или до первой точки, или до первого емэйла включительно, но все строчку с емэйлами не получилось
-        Pattern pattern1 = Pattern.compile("[А-Я][^!.?]+\\.[\\w{2,4}]*");
+        Pattern pattern1 = Pattern.compile("[А-Я][^!.?]+\\.[\\w{2,4}]*.*");
         //до первой точки
         //Pattern pattern1 = Pattern.compile("[А-Я][^!.?]+\\.");
 

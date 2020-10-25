@@ -1,10 +1,5 @@
 package com.company.hw9.task2;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-
 public class Main {
     /**
      * В текстовом файле хранится информация о сотрудниках компании
@@ -14,6 +9,6 @@ public class Main {
      */
     public static void main(String[] args) {
         PersonLoad personLoad = new PersonLoad();
-        System.out.println(personLoad.getNameTheBiggestExperience().getNamePerson() + " has the biggest experience" );
+        System.out.println(personLoad.personTheBiggestExperience().getNamePerson() + " has the biggest experience" );
     }
 }
