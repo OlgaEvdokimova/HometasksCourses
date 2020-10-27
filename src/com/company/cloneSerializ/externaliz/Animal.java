@@ -83,7 +83,6 @@ public class Animal implements Cloneable ,Externalizable {
         out.writeObject(weight);
         out.writeObject(age);
     }
-
     @Override
     public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
         this.color = (String) in.readObject();
