@@ -14,7 +14,7 @@ public class Runner {
         System.out.println("used Externalizable");
         try {
             serialize(cat);
-            deserializeCat(PATH, cat);
+            deserializeCat(PATH);
         } catch (IOException | ClassNotFoundException e) {
             System.out.println(e.getMessage());
         }
@@ -22,18 +22,18 @@ public class Runner {
 
     }
 
-    public static void serialize(Object o) throws IOException {
+    public static void serialize(Cat cat) throws IOException {
         FileOutputStream fos = new FileOutputStream(PATH);
         ObjectOutputStream oos = new ObjectOutputStream(fos);
-        oos.writeObject(o);
+        oos.writeObject(cat);
         oos.close();
 
     }
 
-    public static void deserializeCat(String PATH, Cat cat) throws IOException, ClassNotFoundException {
+    public static void deserializeCat(String PATH) throws IOException, ClassNotFoundException {
         FileInputStream fis = new FileInputStream(PATH);
         ObjectInputStream ois = new ObjectInputStream(fis);
-        cat = (Cat) ois.readObject();
+        Cat cat = (Cat) ois.readObject();
         System.out.println("Cat after deserialization: " + cat + "\n");
         ois.close();
 

@@ -26,7 +26,7 @@ public class Main {
         try {
             System.out.println("used Serializable");
             serialize(horse);
-            deserialize(PATH, horse);
+            deserialize(PATH);
         } catch (IOException | ClassNotFoundException e) {
             System.out.println(e.getMessage());
         }
@@ -41,7 +41,7 @@ public class Main {
 
     }
 
-    public static void serialize(Object o) throws IOException {
+    public static void serialize(Horse o) throws IOException {
         FileOutputStream fos = new FileOutputStream(PATH);
         ObjectOutputStream oos = new ObjectOutputStream(fos);
         oos.writeObject(o);
@@ -49,10 +49,11 @@ public class Main {
 
     }
 
-    public static void deserialize(String PATH, Horse horse) throws IOException, ClassNotFoundException {
+    public static void deserialize(String PATH) throws IOException, ClassNotFoundException {
         FileInputStream fis = new FileInputStream(PATH);
         ObjectInputStream ois = new ObjectInputStream(fis);
-        horse = (Horse) ois.readObject();
+
+        Horse horse = (Horse) ois.readObject();
         System.out.println("Horse after deserialization: " + horse + "\n");
 
         ois.close();
