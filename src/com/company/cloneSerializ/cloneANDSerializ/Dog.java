@@ -1,4 +1,4 @@
-package com.company.cloneSerializ;
+package com.company.cloneSerializ.cloneANDSerializ;
 
 import java.util.Objects;
 

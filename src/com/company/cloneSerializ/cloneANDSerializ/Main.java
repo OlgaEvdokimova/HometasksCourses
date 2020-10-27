@@ -1,7 +1,8 @@
-package com.company.cloneSerializ;
+package com.company.cloneSerializ.cloneANDSerializ;
+
+import com.company.cloneSerializ.externaliz.Cat;
 
 import java.io.*;
-import java.util.regex.Pattern;
 
 public class Main {
     /**
@@ -14,8 +15,10 @@ public class Main {
      * порода, пользуясь интерфейсом Externalizable реализуйте
      * собственный механизм сериализации и десериализации.
      */
-    public static final String PATH = "o.ser";
-
+    public static final String PATH = "horse.ser";
+// почему-то  в файл записывается null какие-то, но десериализуются нормально вроде.
+    // кот c Externalizable в отдельной папке, для удобства проверки, потому что иначе Serializable
+    // берет пустой конструктор и получается null
     public static void main(String[] args) {
         Horse horse = new Horse("white", 150, 10, "Altai", 165);
         System.out.println(horse + "\n");
@@ -24,16 +27,6 @@ public class Main {
             System.out.println("used Serializable");
             serialize(horse);
             deserialize(PATH, horse);
-        } catch (IOException | ClassNotFoundException e) {
-            System.out.println(e.getMessage());
-        }
-
-        Cat cat = new Cat("ginger", 7, 3, "Mars", "Pers");
-        System.out.println(cat + "\n");
-        System.out.println("used Externalizable");
-        try {
-            serialize(cat);
-            deserialize(PATH, cat);
         } catch (IOException | ClassNotFoundException e) {
             System.out.println(e.getMessage());
         }
@@ -56,19 +49,12 @@ public class Main {
 
     }
 
-    public static void deserialize(String PATH, Object o) throws IOException, ClassNotFoundException {
+    public static void deserialize(String PATH, Horse horse) throws IOException, ClassNotFoundException {
         FileInputStream fis = new FileInputStream(PATH);
         ObjectInputStream ois = new ObjectInputStream(fis);
-        Animal animal = (Animal) o;
+        horse = (Horse) ois.readObject();
+        System.out.println("Horse after deserialization: " + horse + "\n");
 
-        if (animal.isCat()) {
-            Cat cat = (Cat) ois.readObject();
-            System.out.println("Cat after deserialization: " + cat + "\n");
-        }
-        if (animal.isHorse()) {
-            Horse horse = (Horse) ois.readObject();
-            System.out.println("Horse after deserialization: " + horse + "\n");
-        }
         ois.close();
 
 

@@ -1,5 +1,4 @@
-package com.company.cloneSerializ;
-
+package com.company.cloneSerializ.externaliz;
 import java.io.Externalizable;
 import java.io.IOException;
 import java.io.ObjectInput;

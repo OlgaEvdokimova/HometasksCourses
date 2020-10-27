@@ -1,4 +1,4 @@
-package com.company.cloneSerializ;
+package com.company.cloneSerializ.cloneANDSerializ;
 
 import java.io.Serializable;
 
@@ -7,8 +7,8 @@ public class Horse extends Animal implements Serializable {
     private String breed;
     private int height;
 
-    public Horse() {
-    }
+//    public Horse() {
+//    }
 
     public Horse(String color, int weight, int age, String breed, int height) {
         super(color, weight, age);

@@ -1,16 +1,16 @@
-package com.company.cloneSerializ;
+package com.company.cloneSerializ.cloneANDSerializ;
 
 import java.io.*;
 import java.util.Objects;
 
-public class Animal implements Cloneable, Serializable, Externalizable {
+public class Animal implements Cloneable, Serializable { //,Externalizable {
     public static final long serialVersionUID = 2L;
     private String color;
     private int weight;
     private int age;
 
-    public Animal() {
-    }
+//    public Animal() {
+//    }
 
     public Animal(String color, int weight, int age) {
         this.color = color;
@@ -77,17 +77,17 @@ public class Animal implements Cloneable, Serializable, Externalizable {
                 ", age=" + age + ", ";
     }
 
-    @Override
-    public void writeExternal(ObjectOutput out) throws IOException {
-        out.writeObject(color);
-        out.writeObject(weight);
-        out.writeObject(age);
-    }
-
-    @Override
-    public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
-        this.color = (String) in.readObject();
-        this.weight = (Integer) in.readObject();
-        this.age = (Integer) in.readObject();
-    }
+//    @Override
+//    public void writeExternal(ObjectOutput out) throws IOException {
+//        out.writeObject(color);
+//        out.writeObject(weight);
+//        out.writeObject(age);
+//    }
+//
+//    @Override
+//    public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
+//        this.color = (String) in.readObject();
+//        this.weight = (Integer) in.readObject();
+//        this.age = (Integer) in.readObject();
+//    }
 }
