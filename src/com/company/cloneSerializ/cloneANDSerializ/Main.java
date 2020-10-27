@@ -17,8 +17,7 @@ public class Main {
      */
     public static final String PATH = "horse.ser";
 // почему-то  в файл записывается null какие-то, но десериализуются нормально вроде.
-    // кот c Externalizable в отдельной папке, для удобства проверки, потому что иначе Serializable
-    // берет пустой конструктор и получается null
+    // кот c Externalizable в отдельной папке, что-то не получилось вместе сделать
     public static void main(String[] args) {
         Horse horse = new Horse("white", 150, 10, "Altai", 165);
         System.out.println(horse + "\n");
