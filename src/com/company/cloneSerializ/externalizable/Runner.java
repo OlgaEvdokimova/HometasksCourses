@@ -1,4 +1,4 @@
-package com.company.cloneSerializ.externaliz;
+package com.company.cloneSerializ.externalizable;
 
 import java.io.*;
 

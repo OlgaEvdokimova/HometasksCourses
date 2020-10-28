@@ -1,6 +1,4 @@
-package com.company.cloneSerializ.cloneANDSerializ;
-
-import com.company.cloneSerializ.externaliz.Cat;
+package com.company.cloneSerializ.serializable;
 
 import java.io.*;
 
@@ -16,8 +14,10 @@ public class Main {
      * собственный механизм сериализации и десериализации.
      */
     public static final String PATH = "horse.ser";
-// почему-то  в файл записывается null какие-то, но десериализуются нормально вроде.
-    // кот c Externalizable в отдельной папке, что-то не получилось вместе сделать
+
+    // почему-то  в файл записывается null какие-то, но десериализуются нормально вроде.
+    // Cat c Externalizable в отдельной папке
+
     public static void main(String[] args) {
         Horse horse = new Horse("white", 150, 10, "Altai", 165);
         System.out.println(horse + "\n");
@@ -29,14 +29,6 @@ public class Main {
         } catch (IOException | ClassNotFoundException e) {
             System.out.println(e.getMessage());
         }
-
-        Dog dog1 = new Dog("black", 15, 5, "Boston", "Bigl");
-        Dog dog2 = new Dog("brown", 10, 2, "Kim", "Spaniel");
-        System.out.println(dog1);
-        cloneDog(dog1);
-        System.out.println(dog2);
-        cloneDog(dog2);
-
 
     }
 
@@ -51,22 +43,9 @@ public class Main {
     public static void deserialize(String PATH) throws IOException, ClassNotFoundException {
         FileInputStream fis = new FileInputStream(PATH);
         ObjectInputStream ois = new ObjectInputStream(fis);
-
         Horse horse = (Horse) ois.readObject();
         System.out.println("Horse after deserialization: " + horse + "\n");
-
         ois.close();
-
-
     }
 
-    public static void cloneDog(Dog dog) {
-        try {
-            dog = (Dog) dog.clone();
-        } catch (CloneNotSupportedException e) {
-            System.out.println(e.getMessage());
-        }
-        System.out.println("Clone for Dog: " + dog);
-
-    }
 }
