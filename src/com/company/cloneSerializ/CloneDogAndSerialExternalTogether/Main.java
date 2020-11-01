@@ -31,11 +31,10 @@ public class Main {
         // С Догом посмотрите, пожалуйста, коментарий в классе Animal
         Dog dog1 = new Dog("black", 15, 5, "Boston", DogBreedEnum.BIGL, new DogBreedClass("Bigl"), true);
         Dog dog2 = new Dog("brown", 10, 2, "Kim", DogBreedEnum.TERRIER, new DogBreedClass("Terrier"), false);
-        System.out.println(dog1);
         cloneDog(dog1);
-        System.out.println(dog2);
+        System.out.println(dog1+ "\n");
         cloneDog(dog2);
-
+        System.out.println(dog2+ "\n");
 
     }
 
@@ -44,13 +43,12 @@ public class Main {
         try {
             dog = (Dog) dog.clone();
             dog.setBreedEnum(DogBreedEnum.SPANIEL);
-// я хотела просто увидеть неглубокое клонирование с тем кодом, который есть ( с закоменченным), но не получается
             dog.getBreedClass().setName("Spaniel");
 
         } catch (CloneNotSupportedException e) {
             System.out.println(e.getMessage());
         }
-        System.out.println("Clone: " + dog + "\n");
+        System.out.println("Clone: " + dog );
 
     }
 }

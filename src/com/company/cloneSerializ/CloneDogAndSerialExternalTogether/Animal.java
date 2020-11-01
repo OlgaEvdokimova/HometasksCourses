@@ -3,7 +3,7 @@ package com.company.cloneSerializ.CloneDogAndSerialExternalTogether;
 import java.io.*;
 import java.util.Objects;
 
-public class Animal implements Cloneable, Serializable, Externalizable {
+public class Animal implements  Serializable, Externalizable {
     public static final long serialVersionUID = 2L;
     private String color;
     private int weight;
@@ -18,18 +18,6 @@ public class Animal implements Cloneable, Serializable, Externalizable {
         this.age = age;
     }
 
-    @Override
-    protected Object clone() throws CloneNotSupportedException {
-//        Animal clone = (Animal) super.clone();
-//        return clone;
-        return super.clone();
-        //я спец. закоментила выше и в др классах, чтобы было не глубокое клонирование( я даже убрала имплементацию у  DogBreedClass
-        //и оно клонируется при любом раскладе глубоко или мне кажется, даже если DogBreedClass не ставить Cloneable. // почему?
-        // даже поле (DogBreedClass) если менять у клона, оно только у клона и меняется, то есть глубокое клонир
-        //и правильно ли я сделала глубокое клонирование(весь закоменченный код это для глубокого клон)?
-        //короче, у меня тут ничего не работает не понимаю почему, пересматривала лекцию и вроде как у Валерии все делала
-
-    }
 
     public String getColor() {
         return color;

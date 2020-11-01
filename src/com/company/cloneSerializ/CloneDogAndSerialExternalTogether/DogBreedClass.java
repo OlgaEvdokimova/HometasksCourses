@@ -1,6 +1,6 @@
 package com.company.cloneSerializ.CloneDogAndSerialExternalTogether;
 
-public class DogBreedClass {//implements  Cloneable{
+public class DogBreedClass implements  Cloneable{
     String name;
 
     public DogBreedClass(String name) {
@@ -8,10 +8,10 @@ public class DogBreedClass {//implements  Cloneable{
     }
 
 
-//    @Override
-//    protected Object clone() throws CloneNotSupportedException {
-//        return super.clone();
-//    }
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
 
     public String getName() {
         return name;

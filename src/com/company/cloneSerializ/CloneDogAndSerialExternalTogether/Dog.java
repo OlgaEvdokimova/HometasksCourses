@@ -1,7 +1,7 @@
 package com.company.cloneSerializ.CloneDogAndSerialExternalTogether;
 
 
-public class Dog extends Animal {
+public class Dog extends Animal implements Cloneable{
     private String nickName;
     private DogBreedEnum breedEnum;
     private DogBreedClass breedClass;
@@ -17,10 +17,9 @@ public class Dog extends Animal {
 
     @Override
     public Object clone() throws CloneNotSupportedException {
-//        Dog dog = (Dog) super.clone();
-//        dog.breedClass = (DogBreedClass) breedClass.clone();
-//        return dog;
-        return super.clone();
+        Dog dog = (Dog) super.clone();
+        dog.breedClass = (DogBreedClass) breedClass.clone();
+        return dog;
     }
 
     public boolean isTakePartExhibition() {
