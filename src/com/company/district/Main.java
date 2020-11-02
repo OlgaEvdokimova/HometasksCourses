@@ -71,10 +71,12 @@ public class Main {
         for (House house : houses) {
             if (house.getNumber() == 3 && house.getNStoryBuilding() == 2) {
                 if (house.getRooms().size() == 2) {
-                    for (Room room : house.getRooms()) {
-                        if (room.getDwellers().containsAll(dwellers32)) {
+                    if (house.getRooms().containsAll(rooms3)) {
+                        for (Room room : house.getRooms()) {
+                            if (room.getDwellers().containsAll(dwellers32)) {
+                            }
+                            System.out.println("Содержит: " + house);
                         }
-                        System.out.println("Содержит: " + house);
                     }
                 }
             }
