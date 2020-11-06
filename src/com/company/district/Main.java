@@ -59,9 +59,7 @@ public class Main {
             houses.get(i).setNumber(i + 1);
         }
 
-        for (House house : houses) {
-            System.out.println(house);
-        }
+        houses.forEach(System.out::println);
 
         System.out.println();
         //Используя метод contains найдите, содержит ли «район» дом с номером 3, 5 этажами и 2
