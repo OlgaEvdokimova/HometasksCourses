@@ -7,9 +7,7 @@ public class Main {
 
         Horse horse = new Horse("white", 150, 10, "Altai", 165);
         System.out.println(horse + "\n");
-        // при выводе с исп-нием Serializable, пишет "Horse has no valid constructor" ,  он же не нужен, не понимаю зачем он нужен. Может потому что у
-        //предка есть пустой конструктор(который необх. для  External.). Хорошо, я его поставила,  и она тепрь выводит Horse со своими собственными полями breed='null', height=0
-        //если делать отдельно как я делала в отдельных папках, тогда все хорошо. Только я не понимаю, почему здесь так)
+
         try {
             System.out.println("used Serializable");
             horse.serialize();
@@ -28,7 +26,6 @@ public class Main {
             System.out.println(e.getMessage());
         }
 
-        // С Догом посмотрите, пожалуйста, коментарий в классе Animal
         Dog dog1 = new Dog("black", 15, 5, "Boston", DogBreedEnum.BIGL, new DogBreedClass("Bigl"), true);
         Dog dog2 = new Dog("brown", 10, 2, "Kim", DogBreedEnum.TERRIER, new DogBreedClass("Terrier"), false);
         cloneDog(dog1);

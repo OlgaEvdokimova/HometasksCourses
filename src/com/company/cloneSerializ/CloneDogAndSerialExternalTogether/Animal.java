@@ -3,7 +3,7 @@ package com.company.cloneSerializ.CloneDogAndSerialExternalTogether;
 import java.io.*;
 import java.util.Objects;
 
-public class Animal implements  Serializable, Externalizable {
+public class Animal implements  Serializable {
     public static final long serialVersionUID = 2L;
     private String color;
     private int weight;
@@ -49,20 +49,6 @@ public class Animal implements  Serializable, Externalizable {
 
     public boolean isHorse() {
         return true;
-    }
-
-    @Override
-    public void writeExternal(ObjectOutput out) throws IOException {
-        out.writeObject(color);
-        out.writeObject(weight);
-        out.writeObject(age);
-    }
-
-    @Override
-    public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
-        this.color = (String) in.readObject();
-        this.weight = (Integer) in.readObject();
-        this.age = (Integer) in.readObject();
     }
 
     @Override

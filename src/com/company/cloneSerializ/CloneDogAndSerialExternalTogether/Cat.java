@@ -47,17 +47,20 @@ public class Cat extends Animal implements Externalizable {
         this.breed = breed;
     }
 
-
     @Override
     public void writeExternal(ObjectOutput out) throws IOException {
-        super.writeExternal(out);
+        out.writeObject(super.getColor());
+        out.writeObject(super.getWeight());
+        out.writeObject(super.getAge());
         out.writeObject(this.nickName);
         out.writeObject(this.breed);
     }
 
     @Override
     public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
-        super.readExternal(in);
+        super.setColor((String) in.readObject());
+        super.setWeight((Integer) in.readObject());
+        super.setAge((Integer) in.readObject());
         nickName = (String) in.readObject();
         breed = (String) in.readObject();
 
