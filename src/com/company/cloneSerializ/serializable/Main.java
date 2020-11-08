@@ -32,7 +32,7 @@ public class Main {
 
     }
 
-    public static void serialize(Horse o) throws IOException {
+    public static void serialize(Object o) throws IOException {
         FileOutputStream fos = new FileOutputStream(PATH);
         ObjectOutputStream oos = new ObjectOutputStream(fos);
         oos.writeObject(o);
@@ -43,8 +43,8 @@ public class Main {
     public static void deserialize(String PATH) throws IOException, ClassNotFoundException {
         FileInputStream fis = new FileInputStream(PATH);
         ObjectInputStream ois = new ObjectInputStream(fis);
-        Horse horse = (Horse) ois.readObject();
-        System.out.println("Horse after deserialization: " + horse + "\n");
+        Object o =  ois.readObject();
+        System.out.println("Horse after deserialization: " + o + "\n");
         ois.close();
     }
 
