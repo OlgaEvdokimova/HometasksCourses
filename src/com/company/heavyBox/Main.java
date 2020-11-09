@@ -22,27 +22,44 @@ public class Main {
                 add(box5);
             }
         };
-
+        List<HeavyBox> heavyBoxList2 = new ArrayList<>(heavyBoxList);
+        // Распечатать его содержимое используя for each.
         heavyBoxList.forEach(System.out::println);
 
         System.out.println();
-
-        heavyBoxList.get(0).setWeight(1);
-
+        // Изменить вес первого ящика на 1.
+        heavyBoxList.get(0).changeWeight(1);
+        //удалить поледний ящик
         heavyBoxList.remove(heavyBoxList.size() - 1);
 
-
+        // Получить массив содержащий ящики из коллекции двумя способами и вывести на консоль.
         Object[] objects = heavyBoxList.toArray();
+       //1
         for (Object o : objects) {
             System.out.println(o);
         }
         System.out.println();
+        //2
         HeavyBox[] array = heavyBoxList.toArray(new HeavyBox[heavyBoxList.size()]);
         for (HeavyBox box : array) {
             System.out.println(box);
         }
         System.out.println();
+        //3
+        HeavyBox[] array2 = new HeavyBox[heavyBoxList.size()];
 
+
+        for (int i = 0; i < heavyBoxList.size(); i++){
+            array2[i] = new HeavyBox(heavyBoxList.get(i).getWeight());
+            System.out.println(array2[i]);
+        }
+        System.out.println();
+
+        // Удалить все ящики.
+        heavyBoxList.clear();
+
+        System.out.println();
+        // Создать очередь, содержащую объекты класса HeavyBox. Используем класс ArrayDeque.
         Deque<HeavyBox> boxQueue = new ArrayDeque<>();
 
         boxQueue.offer(box1);
@@ -53,18 +70,15 @@ public class Main {
         while (!boxQueue.isEmpty()) {
             boxQueue.poll();
         }
-        if (boxQueue.isEmpty()) {
-            System.out.println("empty");
-        }
 
 
-        //Если вес коробки больше 300 гр, коробка
-        //перемещается в другую коллекцию.
-        // изучаю стримы сейчас, решила пробовать писать ими, что могу
-        List<HeavyBox> newCollection = heavyBoxList.stream()
-                .filter(b -> b.getWeight() > 300)
-                .collect(Collectors.toList());
-        newCollection.forEach(System.out::println);
+        List<HeavyBox> heavyBoxList3 = new ArrayList<>(heavyBoxList2);
+
+        // Написать метод, который перебирает элементы коллекции и проверяет вес коробок.
+        // Если вес коробки больше 300 гр, коробка перемещается в другую коллекцию.
+
+        HeavyBox.checkBoxWeight(heavyBoxList3);
+
 
     }
 }
