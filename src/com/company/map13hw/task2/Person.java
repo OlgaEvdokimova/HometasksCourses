@@ -4,11 +4,11 @@ import java.util.Objects;
 
 public class Person {
     private String name;
-    private String LastName;
+    private String lastName;
 
     public Person(String name, String lastName) {
         this.name = name;
-        LastName = lastName;
+        this.lastName = lastName;
     }
 
     public String getName() {
@@ -20,11 +20,11 @@ public class Person {
     }
 
     public String getLastName() {
-        return LastName;
+        return lastName;
     }
 
     public void setLastName(String lastName) {
-        LastName = lastName;
+        this.lastName = lastName;
     }
 
     @Override
@@ -33,19 +33,19 @@ public class Person {
         if (o == null || getClass() != o.getClass()) return false;
         Person person = (Person) o;
         return Objects.equals(name, person.name) &&
-                Objects.equals(LastName, person.LastName);
+                Objects.equals(lastName, person.lastName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, LastName);
+        return Objects.hash(name, lastName);
     }
 
     @Override
     public String toString() {
         return "Person{" +
                 "name='" + name + '\'' +
-                ", LastName='" + LastName + '\'' +
+                ", LastName='" + lastName + '\'' +
                 '}';
     }
 }
