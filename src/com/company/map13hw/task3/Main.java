@@ -5,6 +5,7 @@ import com.company.map13hw.task2.Dog;
 import com.company.map13hw.task2.Parrot;
 import com.company.map13hw.task2.Pet;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -22,7 +23,11 @@ public class Main {
         Dog dogLuntik2 = new Dog("Luntik");
         Parrot parrotKesha2 = new Parrot("Kesha");
 
-        Set<Pet> setOfPets = new HashSet<Pet>(List.of(catBarsik,catBarsik2, dogLuntik, dogLuntik2, parrotKesha, parrotKesha2));
-        System.out.println(setOfPets);
+        List<Pet> listOfPes = new ArrayList<>(List.of(catBarsik,catBarsik2, dogLuntik, dogLuntik2, parrotKesha, parrotKesha2));
+        System.out.println(listOfPes);
+        System.out.println(setOfPets(listOfPes));
+    }
+    public static Set<Pet> setOfPets(List<Pet> listOfPes){
+        return new HashSet<Pet>(listOfPes);
     }
 }
